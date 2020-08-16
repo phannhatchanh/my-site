@@ -20,7 +20,7 @@ module.exports = {
   facebook: 'https://fb.me/phannhatchanh', 
   instagram: '', 
   github: 'https://github.com/phannhatchanh',         
-  youtube: 'https://youtu.be/phannhatchanh',
+  youtube: 'https://www.youtube.com/user/pnchanh',
   
   about: 'About Me',
   contact: 'Contact',
