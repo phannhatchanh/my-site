@@ -1,19 +1,19 @@
 {
-  "name": "borderless",
+  "name": "gatsbyclassictheme",
   "private": true,
-  "description": "Gatsby Blog, 'Borderless' Theme By Junhobaik",
+  "description": "Gatsby Blog Theme By Phan Nhat Chanh",
   "version": "3.0.0",
-  "author": "JunhoBaik",
+  "author": "Phan Nhat Chanh",
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/junhobaik/junhobaik.github.io"
+    "url": "https://github.com/phannhatchanh/my-site"
   },
   "bugs": {
-    "url": "https://github.com/junhobaik/junhobaik.github.io/issues"
+    "url": "https://github.com/phannhatchanh/my-site/issues"
   },
   "scripts": {
     "start": "gatsby develop",
