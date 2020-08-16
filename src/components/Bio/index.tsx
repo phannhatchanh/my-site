@@ -98,7 +98,7 @@ const Bio = () => {
             <Fa icon={faYoutube} className="youtube" />
           </a>
         )}
-        <a href={`${config.siteUrl}/rss`} target="_blank" rel="noopener noreferrer">
+        <a href={`${config.siteUrl}/rss.xml`} target="_blank" rel="noopener noreferrer">
           <Fa icon={faRss} className="rss" />
         </a>
       </div>
