@@ -47,24 +47,25 @@ Bạn có thể xem **GraphiQL** , một IDE trong trình duyệt, để xem d�
 3. Chạy lệnh `npm update` để cập nhật.
 
 ## Các thành phần từ Gatsby
-Sử dụng <a href="https://www.gatsbyjs.org/docs/gatsby-link/" rel="noopener noreferrer" target="_blank">Link</a> (sử dụng cho liên kết nội bộ thay thế cho thẻ `<a>`). Đối với các liên kết bên ngoài, sử dụng `<a>` như bình thường.
+- Sử dụng <a href="https://www.gatsbyjs.org/docs/gatsby-link/" rel="noopener noreferrer" target="_blank">Link</a> (sử dụng cho liên kết nội bộ thay thế cho thẻ `<a>`). Đối với các liên kết bên ngoài, sử dụng `<a>` như bình thường.
+  ```javascript
+  import { Link } from 'gatsby'
+  <Link to="/">Text<Link/> //Chỉ sử dụng cho liên kết nội bộ
+  ```
+  Không thể sử dụng `target='_blank'` với `<Link>`
+- Sử dụng `className` thay vì `class=` Ví dụ: `className = "abc"` hay `className = "abc xyz"`.
+- <div class="filename">Sử dụng CSS</div>
+  
+  ```css
+  <div style={{ color: "#ffff", paddingTop: "10px" }}></div>
+  ```
 
-```javascript
-import { Link } from 'gatsby'
-<Link to="/">Text<Link/> //Chỉ sử dụng cho liên kết nội bộ
-```
-
-Không thể sử dụng `target='_blank'` với `<Link>`
-
-Sử dụng `className` thay vì `class=` Ví dụ: `className = "abc"` hay `className = "abc xyz"`.
-
-<div class="filename">Sử dụng CSS</div>
-
-```css
-<div style={{ color: "#ffff", paddingTop: "10px" }}></div>
-```
-
-Ngày trong Gatsby `{new Date().getFullYear()}` hoặc sử dụng <a href="https://momentjs.com/docs/#/displaying/" rel="noopener noreferrer" target="_blank">moment.js</a>
+- Ngày trong Gatsby `{new Date().getFullYear()}` hoặc sử dụng <a href="https://momentjs.com/docs/#/displaying/" rel="noopener noreferrer" target="_blank">moment.js</a>
+- `Active className` trong `menu` trên trang web với GatsbyJS:
+  ```js
+  <Link to="/about/" activeClassName="active">About Me</Link>
+  <Link to="/contact/" activeClassName="active">Contact</Link>
+  ```
 
 ## Áp dụng Bootstrap
 Bạn có thể cài đặt <a href="https://github.com/jaxx2104/gatsby-starter-bootstrap" rel="noopener noreferrer" target="_blank">Gatsby Bootstrap Starter</a>.
