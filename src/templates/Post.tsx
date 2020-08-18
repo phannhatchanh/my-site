@@ -222,7 +222,7 @@ const Post = (props: postProps) => {
                     <span>)</span>
                   </>
                 ) : null}
-                <span className="dot">·</span><span className="date-wrap">{timeToRead} min read</span>
+                <span className="dot">·</span><span className="write-date">{timeToRead} min read</span>
               </div>
               
               {tags.length && tags[0] !== 'undefined' ? (
