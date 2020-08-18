@@ -2,7 +2,10 @@
   min-width: 14rem;
   width: 14rem;
   margin-left: 2rem;
-
+  .active {
+    color:#222;
+    font-weight:700;
+  }
   p,
   span {
     display: block;
@@ -37,7 +40,7 @@
 
     &.name,
     &.company,
-    &.location {
+    &.country {
       cursor: default;
     }
   }

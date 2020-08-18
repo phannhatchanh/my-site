@@ -13,7 +13,7 @@ module.exports = {
   comment: 'Hi there! I\'m Chanh. I\'m passionate about learning, building \'cool\' stuff and travelling. Feel free to reach out to me below regarding professional work, or just for a chat!',
   name: '',
   company: '',
-  location: '',
+  country: '',
   email: 'mailto:phannhatchanh@gmail.com',
   website: '',
   linkedin: '',

@@ -7,12 +7,12 @@ import './bio.scss';
 import config from '../../../_config';
 
 const Bio = () => {
-  const { comment, name, company, location, email, website, linkedin, facebook, instagram, github, youtube, about, contact } = config;
+  const { comment, name, company, country, email, website, linkedin, facebook, instagram, github, youtube, about, contact } = config;
 
   return (
     <div className="bio">
       {!comment ? null : <span className="comment">{comment}</span>}
-      
+
       {!name ? null : (
         <div className="bio-item name">
           <div className="icon-wrap">
@@ -31,12 +31,12 @@ const Bio = () => {
         </div>
       )}
 
-      {!location ? null : (
-        <div className="bio-item location">
+      {!country ? null : (
+        <div className="bio-item country">
           <div className="icon-wrap">
             <Fa icon={faMapMarkerAlt} />
           </div>
-          <span>{location}</span>
+          <span>{country}</span>
         </div>
       )}
 
@@ -52,17 +52,17 @@ const Bio = () => {
         </div>
       )}
 
-
       {!about ? null : (
-        <div className="bio-item website">
+        <div className={location.pathname === '/about/' ? 'bio-item active' : 'bio-item'}>
           <div className="icon-wrap"><Fa icon={faUserCircle} /></div>
-          <a href="../about/">{about}</a>
+          <a href="/about/">{about}</a>
         </div>
       )}
+      
       {!contact ? null : (
-        <div className="bio-item website">
+        <div className={location.pathname === '/contact/' ? 'bio-item active' : 'bio-item'}>
           <div className="icon-wrap"><Fa icon={faAt} /></div>
-          <a href="../contact/">{contact}</a>
+          <a href="/contact/">{contact}</a>
         </div>
       )}
 
