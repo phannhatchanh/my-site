@@ -243,7 +243,7 @@ const Post = (props: postProps) => {
                       });
                     }}
                   >
-                    <Fa icon={faListUl} /> TABLE OF CONTENT
+                    <Fa icon={faListUl} />
                   </div>
                 </div>
               )}
@@ -323,11 +323,11 @@ const Post = (props: postProps) => {
             <>
               <aside className="ad">
                 <AdSense.Google
-                  client={config.googleAdsenseClient || 'ca-pub-5001380215831339'}
-                  slot={config.googleAdsenseSlot || '5214956675'}
-                  style={{ display: 'block' }}
-                  format="auto"
-                  responsive="true"
+                  //client={config.googleAdsenseClient || 'ca-pub-5001380215831339'}
+                  //slot={config.googleAdsenseSlot || '5214956675'}
+                  //style={{ display: 'block' }}
+                  //format="auto"
+                  //responsive="true"
                 />
               </aside>
               

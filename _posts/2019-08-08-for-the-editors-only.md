@@ -23,6 +23,9 @@ Bài đăng này chỉ dành cho tôi để viết bài và nó sẽ được c�
 - `draft` : `true` (Bài viết ở chế độ không công khai)
 - `toc` : `true` (Nếu bạn muốn hiển thị **Table of Content**. chỉ áp dụng cho bài viết)
 - `comment` : `true` (Nếu bạn muốn bật chức năng bình luận cho bài viết)
+- `keywords`:
+  - keyword1
+  - keyword2
 
 ## Chèn các câu hỏi
 - Sử dụng `<h2 class="question">Câu hỏi</h2>`

@@ -1,7 +1,7 @@
 @import '../../utils/variables.scss';
 
 .toc {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   max-width: 220px;
   min-width: 220px;
   max-height: calc(100vh - 6rem);
@@ -49,7 +49,7 @@
   right: 0;
   overflow: auto;
   margin-top: $header-height;
-  opacity: 0.4;
+  opacity: 0.6;
   max-height: 85%;
 
   @media screen and (max-width: $break-toc) {
