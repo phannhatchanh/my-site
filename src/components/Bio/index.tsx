@@ -53,14 +53,14 @@ const Bio = () => {
       )}
 
       {!about ? null : (
-        <div className={location.pathname === "/about/" ? "bio-item active" : "bio-item"}>
+        <div className={location.pathname == "/about/" ? "bio-item active" : "bio-item"}>
           <div className="icon-wrap"><Fa icon={faUserCircle} /></div>
           <Link to="/about/">{about}</Link>
         </div>
       )}
       
       {!contact ? null : (
-        <div className={location.pathname === "/contact/" ? "bio-item active" : "bio-item"}>
+        <div className={location.pathname == "/contact/" ? "bio-item active" : "bio-item"}>
           <div className="icon-wrap"><Fa icon={faAt} /></div>
           <Link to="/contact/">{contact}</Link>
         </div>
