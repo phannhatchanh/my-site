@@ -53,19 +53,19 @@ const Bio = () => {
       )}
 
       {!about ? null : (
-        <div className={location.pathname == "/about/" ? "bio-item active" : "bio-item"}>
+        <div className="bio-item">
           <div className="icon-wrap"><Fa icon={faUserCircle} /></div>
-          <Link to="/about/">{about}</Link>
+          <Link to="/about/" activeClassName="active">About Me</Link>
         </div>
       )}
       
       {!contact ? null : (
-        <div className={location.pathname == "/contact/" ? "bio-item active" : "bio-item"}>
+        <div className="bio-item">
           <div className="icon-wrap"><Fa icon={faAt} /></div>
-          <Link to="/contact/">{contact}</Link>
+          <Link to="/contact/" activeClassName="active">Contact</Link>
         </div>
       )}
-
+  
       <div className="social">
         {!linkedin ? null : (
           <a href={linkedin} target="_blank" rel="noopener noreferrer">
