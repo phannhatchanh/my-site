@@ -21,7 +21,6 @@ const Bio = () => {
           <span>{name}</span>
         </div>
       )}
-
       {!company ? null : (
         <div className="bio-item company">
           <div className="icon-wrap">
@@ -30,7 +29,6 @@ const Bio = () => {
           <span>{company}</span>
         </div>
       )}
-
       {!country ? null : (
         <div className="bio-item country">
           <div className="icon-wrap">
@@ -39,13 +37,11 @@ const Bio = () => {
           <span>{country}</span>
         </div>
       )}
-
       {!website ? null : (
         <div className="bio-item website">
           <div className="icon-wrap">
             <Fa icon={faLink} />
           </div>
-
           <a href={website} target="_blank" rel="noopener noreferrer">
             {website}
           </a>
@@ -58,7 +54,6 @@ const Bio = () => {
           <a href="/about/">{about}</a>
         </div>
       )}
-      
       {!contact ? null : (
         <div className={location.pathname === '/contact/' ? 'bio-item active' : 'bio-item'}>
           <div className="icon-wrap"><Fa icon={faAt} /></div>
@@ -72,7 +67,6 @@ const Bio = () => {
             <Fa icon={faLinkedin} className="linkedin" />
           </a>
         )}
-
         {!facebook ? null : (
           <a href={facebook} target="_blank" rel="noopener noreferrer">
             <Fa icon={faFacebook} className="facebook" />
