@@ -218,7 +218,7 @@ const Post = (props: postProps) => {
                 {update ? (
                   <>
                     <span>(</span>
-                    <span className="update-date">{`Updated: ${update}`}</span>
+                    <span className="update-date">{`Updated ${update}`}</span>
                     <span>)</span>
                   </>
                 ) : null}
