@@ -1,0 +1,13 @@
+# Redirects from what the browser requests to what we serve
+# https://www.netlify.com/docs/redirects/
+/tutorials/              /
+/projects/               /
+/portfolio/              /
+/thoughts/               /
+/blog/                   /
+/my-learning-log/        /
+
+# Redirect default Netlify subdomain to primary domain
+https://elastic-bassi-654db8.netlify.com/* https://phannhatchanh.com/:splat 301!
+https://elastic-bassi-654db8.netlify.app/* https://phannhatchanh.com/:splat 301!
+https://www.phannhatchanh.com/* https://phannhatchanh.com/:splat 301!
