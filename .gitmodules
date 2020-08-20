@@ -1,6 +1,0 @@
-[submodule "_drafts"]
-	path = _drafts
-	url = https://github.com/phannhatchanh/_drafts.git
-[submodule "_posts"]
-	path = _posts
-	url = https://github.com/phannhatchanh/_posts.git
