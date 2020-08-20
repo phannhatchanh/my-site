@@ -7,7 +7,7 @@
   max-height: calc(100vh - 6rem);
   transition: opacity 0.3s;
   padding-right: 0.5rem;
-
+  border-left: 1px solid #ddd;
   &::-webkit-scrollbar {
     display: none;
   }
