@@ -1,0 +1,4 @@
+User-agent: *
+
+sitemap: https://phannhatchanh.com/sitemap.xml
+sitemap: https://phannhatchanh.com/rss.xml
