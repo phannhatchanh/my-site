@@ -6,7 +6,7 @@ import Bio from '../components/Bio';
 
 const htmlPreviewPage = () => (
   <Layout>
-  <SEO title="GitHub and BitBucket HTML Preview" />
+  <SEO title="GitHub and BitBucket HTML Preview" description="Render the html files in public Github repositories" />
     <div className="index-wrap">
     <Bio />
       <div className="index-post-list-wrap">

@@ -6,7 +6,7 @@ import Bio from '../components/Bio';
 
 const ContactPage = () => (
   <Layout>
-  <SEO title="Liên hệ" />
+  <SEO title="Liên hệ" description="Get in touch with me via contact form, email address or facebook mesenger." />
     <div className="index-wrap">
     <Bio />
       <div className="index-post-list-wrap">

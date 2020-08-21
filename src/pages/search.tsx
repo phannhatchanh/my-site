@@ -38,7 +38,7 @@ const Search = (props: SearchProps) => {
 
   return (
     <Layout>
-      <SEO title="Tìm kiếm" />
+      <SEO title="Tìm kiếm" description="Search in title or title and content." />
       <div id="Search">
         <div className="search-inner-wrap">
           <div className="input-wrap">
