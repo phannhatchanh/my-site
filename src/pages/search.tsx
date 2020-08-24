@@ -35,7 +35,7 @@ const Search = (props: SearchProps) => {
     }),
     [value, isTitleOnly]
   );
-
+  const filterCount = filteredPosts.length > 1 ? filteredPosts.length + ' posts found.' : null;
   return (
     <Layout>
       <SEO title="Tìm kiếm" description="Search in title or title and content." />
@@ -74,7 +74,9 @@ const Search = (props: SearchProps) => {
               </span>
             </div>
           </div>
-
+          <div className="count">
+            {filterCount}
+          </div>
           {value !== '' && !filteredPosts.length ? <span className="no-result">No search results</span> : null}
           <PostList posts={value === '' ? posts : filteredPosts} />
         </div>
@@ -102,6 +104,7 @@ export const pageQuery = graphql`
           timeToRead
         }
       }
+      totalCount
     }
   }
 `;

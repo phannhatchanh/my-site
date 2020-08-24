@@ -3,17 +3,20 @@
 #Search {
   max-width: 720px;
   margin: 0 auto;
-
+  .count {
+    text-align: center;
+    margin: 0 0 1.6rem 0;
+  }
   .search-inner-wrap {
     .input-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 4rem;
+      margin-bottom: 0rem; //default: margin-bottom: 4rem;
       padding: 1rem;
 
       @media screen and (max-width: $break-s) {
-        margin-bottom: 2rem;
+        //margin-bottom: 2rem;
       }
 
       input {
