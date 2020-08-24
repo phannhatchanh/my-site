@@ -41,7 +41,7 @@ const Tags = (props: TagsPageProps) => {
       if (fontSize.length <= 1) fontSize = `0${fontSize}`;
       return `${Number(fontSize) / 100 + 0.9}rem`;
     };
-
+ 
     return (
       <li key={g.fieldValue}>
         <span
@@ -58,6 +58,12 @@ const Tags = (props: TagsPageProps) => {
           <a href={`#${g.fieldValue}`}>{g.fieldValue}</a>
         </span>
       </li>
+    );
+  });
+
+  const tagCount = group.map((g: groupItem) => {
+    return (
+        <span>{g.fieldValue === targetTag ? g.totalCount + ' posts found.' : null}</span>
     );
   });
 
@@ -92,7 +98,9 @@ const Tags = (props: TagsPageProps) => {
         <div className="tag-list-wrap">
           <ul>{tagList}</ul>
         </div>
-
+        <div className="count">
+          {tagCount}
+        </div>
         <PostList posts={currentPostList.length ? currentPostList : []} />
       </div>
     </Layout>
