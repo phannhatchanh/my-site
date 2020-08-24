@@ -28,7 +28,7 @@
     display: block;
     opacity: 0.4;
     transition: opacity 0.1s;
-    max-width: calc(220px - 1.5rem);
+    max-width: calc(220px - 1.5rem); //default: max-width: calc(220px - 1.5rem);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -46,7 +46,7 @@
 .toc.outside {
   position: fixed;
   top: 0;
-  right: 0;
+  right: 5em; //default: right: 0;
   overflow: auto;
   margin-top: $header-height;
   opacity: 0.6;

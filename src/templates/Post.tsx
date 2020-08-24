@@ -28,6 +28,7 @@ import { throttle } from 'lodash';
 import './post.scss';
 import './code-theme.scss';
 import 'katex/dist/katex.min.css';
+import './themecode.scss'; 
 
 import Layout from '../components/Layout';
 import Toc from '../components/Toc';
