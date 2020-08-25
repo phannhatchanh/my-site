@@ -33,6 +33,7 @@ import './themecode.scss';
 import Layout from '../components/Layout';
 import Toc from '../components/Toc';
 import SEO from '../components/seo';
+import Newsletter from '../components/Newsletter';
 
 import { RootState } from '../state/reducer';
 import config from '../../_config';
@@ -335,7 +336,7 @@ const Post = (props: postProps) => {
               {!isSSR ? <Suspense fallback={<></>}>{commentEl}</Suspense> : null}
             </>
           )}
-          
+          <Newsletter />
           <Utterances repo="phannhatchanh/my-site" />
         </div>
 
