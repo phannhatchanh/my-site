@@ -1,7 +1,7 @@
 #layout {
   &.light {
     #newsletter {
-      width:30%;
+      width:100%;
       margin:0 auto;
       background:#fff;
       position:relative;
@@ -65,7 +65,7 @@
 
   &.dark {
     #newsletter {
-      width:30%;
+      width:100%;
       margin:0 auto;
       position:relative;
       border-radius:4px;
