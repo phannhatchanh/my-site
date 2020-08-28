@@ -29,6 +29,7 @@ import './post.scss';
 import './code-theme.scss';
 import 'katex/dist/katex.min.css';
 import './themecode.scss'; 
+import './pnc-style.scss'; 
 
 import Layout from '../components/Layout';
 import Toc from '../components/Toc';
