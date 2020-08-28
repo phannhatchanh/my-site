@@ -62,3 +62,6 @@
 .blog-post h2:before { content: "# "; color: teal; }
 @media (max-width: 575px) { .blog-post h3 { font-size: 1.25rem; } }
 .blog-post h3:before { content: "## "; color: #d87638; }
+ 
+.question:before { content: " ? "; color: #4e84c0; }
+summary { cursor: pointer; color: #4e84c0; }
