@@ -1,5 +1,5 @@
 @import '../../utils/variables.scss';
-
+.toc:before { content: "TABLE OF CONTENT"; color: teal; margin-left: 0.5rem; font-weight: bold;}
 .toc {
   font-size: 0.9rem;
   max-width: 220px;
