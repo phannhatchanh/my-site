@@ -66,7 +66,7 @@ const PostList = (props: PostListProps) => {
           </div>
         );
       });
-      const newest = moment(date) > moment().subtract(1, 'months') //Tạo nhãn bài mới
+      const newest = moment(date) > moment().subtract(15, 'days') //Tạo nhãn bài mới (days,months,...)
       const timeago = moment(date).fromNow();                      //Time ago
       return (
         <li key={slug} className={`post`}>
