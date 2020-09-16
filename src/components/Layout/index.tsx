@@ -69,8 +69,6 @@ const Layout = (props: LayoutPropsType) => {
           <main>{children}</main>
           <footer>
             <span>{`© 2019-${new Date().getFullYear()} ${data.site.siteMetadata.author}`}</span>
-            <span>{` | Built with `}</span>
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
           </footer>
         </div>
 
