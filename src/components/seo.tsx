@@ -39,7 +39,8 @@ const SEO = (props: SEOPropsType) => {
         lang: site.siteMetadata.language ?? lang,
       }}
       title={title}
-      titleTemplate={title === metaTtitle ? metaTtitle : `%s | ${metaTtitle}`}
+      //titleTemplate={title === metaTtitle ? metaTtitle : `%s | ${metaTtitle}`}
+      titleTemplate={title === metaTtitle ? metaTtitle : `%s`}
       meta={[
         {
           name: `description`,
