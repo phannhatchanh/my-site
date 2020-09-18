@@ -66,18 +66,17 @@ const PostList = (props: PostListProps) => {
           </div>
         );
       });
-      const newest = moment(date) > moment().subtract(15, 'days') //Tạo nhãn bài mới (days,months,...)
-      const timeago = moment(date).fromNow();                      //Time ago
+      const newest = moment(date) > moment().subtract(29, 'days')
+      const oldest = moment(date) < moment().subtract(29, 'days')
+      const timeago = moment(date).fromNow();
       return (
         <li key={slug} className={`post`}>
           <article>
-            <h2 className="title">
-              <Link to={slug}>{title}</Link> {newest && (<sup>(New)</sup>)}
-            </h2>
+            <h2 className="title"><Link to={slug}>{title}</Link></h2>
             <div className="info">
               <div className="date-wrap">
-                
-                <span className="date" title={date}>{timeago}</span>
+                {newest && (<span className="date">{timeago}</span>)}
+                {oldest && (<span className="date">{date}</span>)}
                 {update ? <span className="update">&nbsp;{`(Updated: ${update})`}</span> : null}
                 <span className="info-dot">·</span><span className="date">{timeToRead} min read</span>
               </div>
