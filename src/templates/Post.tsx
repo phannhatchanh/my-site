@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { graphql, Link } from 'gatsby';
 import moment from 'moment';
 import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
-import { faListUl, faLayerGroup, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faListUl, faLayerGroup, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import AdSense from 'react-adsense';
 import {
   FacebookShareButton,
@@ -30,13 +30,18 @@ import './post.scss';
 import './code-theme.scss';
 import './md-style.scss';
 import 'katex/dist/katex.min.css';
+import './themecode.scss'; 
+import './pnc-style.scss'; 
 
 import Layout from '../components/Layout';
 import Toc from '../components/Toc';
 import SEO from '../components/seo';
+import Newsletter from '../components/Newsletter';
 
 import { RootState } from '../state/reducer';
 import config from '../../_config';
+
+import Utterances from '../components/Utterances';
 
 interface postProps {
   data: any;
@@ -60,7 +65,7 @@ const Post = (props: postProps) => {
   const [colorMode] = useColorMode();
 
   const { markdownRemark } = data;
-  const { frontmatter, html, tableOfContents, fields, excerpt } = markdownRemark;
+  const { frontmatter, html, tableOfContents, fields, excerpt, timeToRead } = markdownRemark;
   const { title, date, tags, keywords } = frontmatter;
   let update = frontmatter.update;
   if (Number(update?.split(',')[1]) === 1) update = null;
@@ -71,7 +76,7 @@ const Post = (props: postProps) => {
   const isDevelopment = process.env.NODE_ENV === 'development';
   const isDisqus: boolean = disqusShortname ? true : false;
   const isSocialShare = enableSocialShare;
-
+  
   const mapTags = tags.map((tag: string) => {
     return (
       <li key={tag} className="blog-post-tag">
@@ -84,8 +89,8 @@ const Post = (props: postProps) => {
     return (
       <li key={`${s.slug}-series-${s.num}`} className={`series-item ${slug === s.slug ? 'current-series' : ''}`}>
         <Link to={s.slug}>
+          <div className="icon-wrap">{slug === s.slug ? <Fa icon={faAngleRight} /> : null}</div>
           <span>{s.title}</span>
-          <div className="icon-wrap">{slug === s.slug ? <Fa icon={faAngleLeft} /> : null}</div>
         </Link>
       </li>
     );
@@ -173,7 +178,9 @@ const Post = (props: postProps) => {
 
     return () => removeScrollEvent();
   }, []);
-
+  const timeago = moment(date).fromNow();   //Time ago
+  const newest = moment(date) > moment().subtract(29, 'days')
+  const oldest = moment(date) < moment().subtract(29, 'days')
   return (
     <>
       <Helmet>
@@ -225,16 +232,18 @@ const Post = (props: postProps) => {
 
             <div className="blog-post-info">
               <div className="date-wrap">
-                <span className="write-date">{date}</span>
+                {newest && (<span className="write-date">{timeago}</span>)}
+                {oldest && (<span className="write-date">{date}</span>)}
                 {update ? (
                   <>
                     <span>(</span>
-                    <span className="update-date">{`Last updated: ${update}`}</span>
+                    <span className="update-date">{`Updated ${update}`}</span>
                     <span>)</span>
                   </>
                 ) : null}
+                <span className="dot">·</span><span className="write-date">{timeToRead} min read</span>
               </div>
-
+              
               {tags.length && tags[0] !== 'undefined' ? (
                 <>
                   <span className="dot">·</span>
@@ -269,10 +278,7 @@ const Post = (props: postProps) => {
               <>
                 <div className="series">
                   <div className="series-head">
-                    <span className="head">Post Series</span>
-                    <div className="icon-wrap">
-                      <Fa icon={faLayerGroup} />
-                    </div>
+                    <span className="head"><Fa icon={faLayerGroup} /> POST SERIES</span>
                   </div>
                   <ul className="series-list">{mapSeries}</ul>
                 </div>
@@ -281,7 +287,7 @@ const Post = (props: postProps) => {
 
             <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
           </div>
-
+          
           {isSocialShare ? (
             <div className="social-share">
               <ul>
@@ -336,17 +342,19 @@ const Post = (props: postProps) => {
             <>
               <aside className="ad">
                 <AdSense.Google
-                  client={config.googleAdsenseClient || 'ca-pub-5001380215831339'}
-                  slot={config.googleAdsenseSlot || '5214956675'}
-                  style={{ display: 'block' }}
-                  format="auto"
-                  responsive="true"
+                  //client={config.googleAdsenseClient || 'ca-pub-5001380215831339'}
+                  //slot={config.googleAdsenseSlot || '5214956675'}
+                  //style={{ display: 'block' }}
+                  //format="auto"
+                  //responsive="true"
                 />
               </aside>
-
+              
               {!isSSR ? <Suspense fallback={<></>}>{commentEl}</Suspense> : null}
             </>
           )}
+          <Newsletter />
+          <Utterances repo="phannhatchanh/my-site" />
         </div>
 
         {!isTableOfContents ? null : <Toc isOutside={true} toc={tableOfContents} />}
@@ -371,6 +379,7 @@ export const pageQuery = graphql`
         keywords
         update(formatString: "MMM DD, YYYY")
       }
+      timeToRead
     }
   }
 `;
