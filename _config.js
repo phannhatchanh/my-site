@@ -27,7 +27,7 @@ module.exports = {
 
   /** Post */
   enablePostOfContents: true,     
-  disqusShortname: '',  
+  disqusShortname: 'phannhatchanh',  
   enableSocialShare: true,        
 
   /** Optional */
