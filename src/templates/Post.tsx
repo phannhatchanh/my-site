@@ -178,7 +178,7 @@ const Post = (props: postProps) => {
 
     return () => removeScrollEvent();
   }, []);
-  const timeago = moment(date).fromNow();   //Time ago
+  const timeago = moment(date).fromNow();
   const newest = moment(date) > moment().subtract(29, 'days')
   const oldest = moment(date) < moment().subtract(29, 'days')
   return (
