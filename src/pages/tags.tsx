@@ -55,7 +55,7 @@ const Tags = (props: TagsPageProps) => {
             setTargetTag(g.fieldValue);
           }}
         >
-          <a href={`#${g.fieldValue}`}>{g.fieldValue}</a>
+          <a href={`/tags/#${g.fieldValue}`}>{g.fieldValue}</a>
         </span>
       </li>
     );
