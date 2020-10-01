@@ -122,7 +122,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 It is not recommended to include " in the title.
 - file: ${node.fileAbsolutePath}
 - title: ${node.frontmatter.title}
-
         `);
       }
 
