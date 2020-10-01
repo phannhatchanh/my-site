@@ -63,7 +63,12 @@
 
     /* Inline code */
     :not(pre) > code[class*='language-'] {
-      padding: 5px 10px;
+      padding: 0.2em;
+      padding-top: 1px;
+      padding-bottom: 1px;
+
+      font-size: 85%;
+
       line-height: 1;
       -moz-border-radius: 3px;
       -webkit-border-radius: 3px;
@@ -245,6 +250,7 @@
       padding: 0.2em;
       padding-top: 1px;
       padding-bottom: 1px;
+      font-size: 85%;
       background: #f8f8f8;
       border: 1px solid #dddddd;
     }
