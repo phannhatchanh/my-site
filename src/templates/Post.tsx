@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { graphql, Link } from 'gatsby';
 import moment from 'moment';
+import Image from 'gatsby-image';
 import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
 import { faListUl, faLayerGroup, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import AdSense from 'react-adsense';
@@ -66,7 +67,7 @@ const Post = (props: postProps) => {
 
   const { markdownRemark } = data;
   const { frontmatter, html, tableOfContents, fields, excerpt, timeToRead } = markdownRemark;
-  const { title, date, tags, keywords } = frontmatter;
+  const { title, date, tags, keywords, icon } = frontmatter;
   let update = frontmatter.update;
   if (Number(update?.split(',')[1]) === 1) update = null;
   const { slug } = fields;
@@ -228,8 +229,8 @@ const Post = (props: postProps) => {
       <Layout>
         <div className="blog-post-container">
           <div className="blog-post">
+            {icon ? <Image fixed={icon.childImageSharp.fixed} /> : null}
             <h1 className="blog-post-title">{title}</h1>
-
             <div className="blog-post-info">
               <div className="date-wrap">
                 {newest && (<span className="write-date">{timeago}</span>)}
@@ -341,7 +342,13 @@ const Post = (props: postProps) => {
           ) : (
             <>
               <aside className="ad">
-
+                <AdSense.Google
+                  //client={config.googleAdsenseClient || 'ca-pub-5001380215831339'}
+                  //slot={config.googleAdsenseSlot || '5214956675'}
+                  //style={{ display: 'block' }}
+                  //format="auto"
+                  //responsive="true"
+                />
               </aside>
               
               {!isSSR ? <Suspense fallback={<></>}>{commentEl}</Suspense> : null}
@@ -369,6 +376,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMM DD, YYYY")
+        icon {
+          childImageSharp {
+            fixed(width: 50, height: 50) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
         tags
         keywords
         update(formatString: "MMM DD, YYYY")
