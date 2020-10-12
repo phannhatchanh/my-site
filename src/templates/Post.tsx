@@ -229,8 +229,10 @@ const Post = (props: postProps) => {
       <Layout>
         <div className="blog-post-container">
           <div className="blog-post">
-            {icon ? <Image fixed={icon.childImageSharp.fixed} /> : null}
-            <h1 className="blog-post-title">{title}</h1>
+            <div className="center">
+              {icon ? <Image fixed={icon.childImageSharp.fixed} /> : null}
+              <h1 className="blog-post-title">{title}</h1>
+            </div>
             <div className="blog-post-info">
               <div className="date-wrap">
                 {newest && (<span className="write-date">{timeago}</span>)}
@@ -341,6 +343,9 @@ const Post = (props: postProps) => {
             </>
           ) : (
             <>
+              <aside className="ad">
+
+              </aside>
               
               {!isSSR ? <Suspense fallback={<></>}>{commentEl}</Suspense> : null}
             </>
