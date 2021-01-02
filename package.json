@@ -60,6 +60,7 @@
     "gatsby-source-filesystem": "^2.3.32",
     "gatsby-transformer-remark": "^2.8.37",
     "gatsby-transformer-sharp": "^2.5.16",
+    "handlebars": "^4.7.6",
     "katex": "^0.12.0",
     "lodash": "^4.17.19",
     "mobile-detect": "^1.4.4",
