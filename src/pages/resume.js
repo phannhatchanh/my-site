@@ -18,10 +18,7 @@ function Resume() {
         <title>Resume | Phan Nhật Chánh</title>
         <link rel="canonical" href="https://phannhatchanh.com/resume"/>
       </Helmet>
-      <p dangerouslySetInnerHTML={{
-        __html: resume,
-      }}>
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: resume }}></p>
     </main>
   );
 }
