@@ -5,7 +5,7 @@ function Resume() {
   const [resume, setResume] = useState(null);
   useEffect(() => {
     async function getResume() {
-      const res = await fetch('/api/resume');
+      const res = await fetch('../../api/resume');
       const newData = await res.text();
       setResume(newData);
     }
