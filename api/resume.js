@@ -12,7 +12,7 @@ export default async (req, res) => {
       throw new Error(error);
     }
 
-    const filename = 'resume.json';
+    const filename = 'https://gist.githubusercontent.com/phannhatchanh/2cbec6b81480f4ef0f1ffb14079b2a84/raw/447f53142ad2d425244654eca5d7d603f7a9c2d4/resume.json';
     const fileContent = gist.files[filename].content;
     res.status(200);
     te = await theme.render(JSON.parse(fileContent));
