@@ -1,5 +1,5 @@
 var Gisty = require('gisty');
-let theme = require('./jsonresume-theme-stackoverflow/index');
+let theme = require('jsonresume-theme-stackoverflow/index');
 
 var gist = new Gisty({
   username: 'phannhatchanh',
