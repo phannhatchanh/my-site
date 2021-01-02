@@ -2,12 +2,12 @@ var Gisty = require('gisty');
 let theme = require('./jsonresume-theme-stackoverflow/index');
 
 var gist = new Gisty({
-  username: 'anmol098',
+  username: 'phannhatchanh',
 });
 
 export default async (req, res) => {
   let te = '<h1>hello</h1>';
-  await gist.fetch('3432ddf496054448dc6aae82a9ca81a4', async function(error, gist) {
+  await gist.fetch('2cbec6b81480f4ef0f1ffb14079b2a84', async function(error, gist) {
     if (error) {
       throw new Error(error);
     }
