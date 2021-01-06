@@ -1,23 +1,64 @@
-var Gisty = require('gisty');
-let theme = require('./jsonresume-theme-stackoverflow/index');
+import React from 'react';
+import PropTypes from 'prop-types';
+import { socialMedia } from '@config';
+import { Side } from '@components';
+import { FormattedIcon } from '@components/icons';
+import styled from 'styled-components';
+import { theme } from '@styles';
+const { colors } = theme;
 
-var gist = new Gisty({
-  username: 'phannhatchanh',
-});
+const StyledList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  &:after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 90px;
+    margin: 0 auto;
+    background-color: ${colors.lightSlate};
+  }
+  li:last-of-type {
+    margin-bottom: 20px;
+  }
+`;
+const StyledLink = styled.a`
+  padding: 10px;
+  &:hover,
+  &:focus {
+    transform: translateY(-3px);
+  }
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+`;
 
-export default async (req, res) => {
-  let te = '<h1>hello</h1>';
-  await gist.fetch('2cbec6b81480f4ef0f1ffb14079b2a84', async function(error, gist) {
-    if (error) {
-      throw new Error(error);
-    }
+const Social = ({ isHome }) => (
+  <Side isHome={isHome} orientation="left">
+    <StyledList>
+      {socialMedia &&
+        socialMedia.map(({ url, name }, i) => (
+          <li key={i}>
+            <StyledLink
+              href={url}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              aria-label={name}>
+              <FormattedIcon name={name} />
+            </StyledLink>
+          </li>
+        ))}
+    </StyledList>
+  </Side>
+);
 
-    const filename = 'resume.json';
-    const fileContent = gist.files[filename].content;
-    res.status(200);
-    te = await theme.render(JSON.parse(fileContent));
-    res.status(200);
-    res.send(te);
-  });
-
+Social.propTypes = {
+  isHome: PropTypes.bool,
 };
+
+export default Social;
