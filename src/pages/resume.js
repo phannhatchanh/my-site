@@ -10,7 +10,7 @@ function Resume() {
       setResume(newData);
     }
 
-    getResume();
+    getResume();1
   }, []);
   return (
     <main>
