@@ -10,15 +10,18 @@ function Resume() {
       setResume(newData);
     }
 
-    getResume();1
+    getResume();
   }, []);
   return (
     <main>
       <Helmet>
-        <title>Resume | Phan Nhật Chánh</title>
+        <title>Resume | Phan Nhat Chanh</title>
         <link rel="canonical" href="https://phannhatchanh.com/resume"/>
       </Helmet>
-      <p dangerouslySetInnerHTML={{ __html: resume }}></p>
+      <p dangerouslySetInnerHTML={{
+        __html: resume,
+      }}>
+      </p>
     </main>
   );
 }
