@@ -1,5 +1,5 @@
 const config = require('./_config');
-const resumeJson = require('./data/resume.json');
+const resumeJson = require('./_posts/data/resume.json');
 const { title, description, author, googleAnalytics, siteUrl, language } = config;
 
 const gatsbyConfig = {
@@ -18,7 +18,7 @@ const gatsbyConfig = {
         resumeJson,
         name: 'resume',
         theme: 'stackoverflow',  //npm install jsonresume-theme-stackoverflow
-        //theme: `${__dirname}/api/jsonresume-theme-stackoverflow`
+        //theme: `${__dirname}/src/jsonresume-theme-stackoverflow`
       },
     },
     
