@@ -9,3 +9,7 @@ yarn-error.log
 # Build directory
 .DS_Store
 public/
+
+# Build Resume
+static/resume.html
+static/resume.pdf
