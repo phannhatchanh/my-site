@@ -24,6 +24,7 @@ module.exports = {
   
   about: 'About Me',
   contact: 'Contact',
+  resume: 'Resume',
 
   /** Post */
   enablePostOfContents: true,     
