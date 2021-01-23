@@ -1,10 +1,27 @@
 const config = require('./_config');
+const resumeJson = require('./data/resume.json');
 const { title, description, author, googleAnalytics, siteUrl, language } = config;
 
 const gatsbyConfig = {
   siteMetadata: { title, description, author, siteUrl, language },
 
   plugins: [
+    {
+      resolve: 'gatsby-theme-jsonresume',
+      options: {
+        resumeJson,
+      },
+    },
+    {
+      resolve: 'gatsby-theme-jsonresume',
+      options: {
+        resumeJson,
+        name: 'resume',
+        theme: 'stackoverflow',  //npm install jsonresume-theme-stackoverflow
+        //theme: `${__dirname}/api/jsonresume-theme-stackoverflow`
+      },
+    },
+    
     `gatsby-plugin-typescript`,
 
     `gatsby-plugin-react-helmet`,
