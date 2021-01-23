@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Link } from 'gatsby'
 import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faAt, faMapMarkerAlt, faLink, faAddressCard, faRss, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faInstagram, faLinkedin, faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faSketch, faLinkedin, faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import './bio.scss';
 import config from '../../../_config';
 
 const Bio = () => {
-  const { comment, name, company, country, email, website, linkedin, facebook, instagram, github, youtube, about, contact } = config;
+  const { comment, name, company, country, email, website, linkedin, facebook, instagram, github, youtube, about, contact, resume } = config;
 
   return (
     <div className="bio">
@@ -55,17 +55,24 @@ const Bio = () => {
       {!about ? null : (
         <div className="bio-item">
           <div className="icon-wrap"><Fa icon={faUserCircle} /></div>
-          <Link to="/about/" activeClassName="active">About Me</Link>
+          <Link to="/about/" activeClassName="active">{about}</Link>
         </div>
       )}
       
       {!contact ? null : (
         <div className="bio-item">
           <div className="icon-wrap"><Fa icon={faAt} /></div>
-          <Link to="/contact/" activeClassName="active">Contact</Link>
+          <Link to="/contact/" activeClassName="active">{contact}</Link>
         </div>
       )}
-  
+      
+      {!resume ? null : (
+        <div className="bio-item">
+          <div className="icon-wrap"><Fa icon={faSketch} /></div>
+          <Link to="/resume/" activeClassName="active">{resume}</Link>
+        </div>
+      )}
+
       <div className="social">
         {!linkedin ? null : (
           <a href={linkedin} target="_blank" rel="noopener noreferrer">
