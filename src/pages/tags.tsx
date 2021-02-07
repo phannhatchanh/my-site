@@ -93,7 +93,7 @@ const Tags = (props: TagsPageProps) => {
 
   return (
     <Layout>
-      <SEO title="Từ khóa" description="Click on the tag you wanna see the posts." />
+      <SEO title="Tags" description="Click on the tag you wanna see the posts." />
       <div id="tags">
         <div className="tag-list-wrap">
           <ul>{tagList}</ul>
