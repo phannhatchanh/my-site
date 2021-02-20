@@ -17,6 +17,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             }
             frontmatter {
               title
+              categories
               tags
               update(formatString: "YYYY-MM-DD")
               date(formatString: "YYYY-MM-DD")
@@ -130,6 +131,13 @@ It is not recommended to include " in the title.
         node.frontmatter.keywords = [config.title, config.author];
       }
 
+      if (!node.frontmatter.categories || node.frontmatter.categories === '') {
+        node.frontmatter.categories = ['undefined'];
+      }
+
+      else if (typeof node.frontmatter.categories === 'string') {
+        node.frontmatter.categories = [node.frontmatter.categories];
+      }
 
       if (!node.frontmatter.tags || node.frontmatter.tags === '') {
         node.frontmatter.tags = ['undefined'];
