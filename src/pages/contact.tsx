@@ -3,10 +3,9 @@ import * as React from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import Bio from '../components/Bio';
-
 const ContactPage = () => (
   <Layout>
-  <SEO title="Liên hệ" description="Get in touch with me via contact form, email address or facebook mesenger." />
+  <SEO title="Contact me" description="Get in touch with me via contact form, email address or facebook mesenger." />
     <div className="index-wrap">
     <Bio />
       <div className="index-post-list-wrap">
@@ -37,7 +36,7 @@ const ContactPage = () => (
             <h3>Bạn có thể liên hệ với tôi qua:</h3>
             <ul>
               <li>Email của tôi <a href="mailto:hello@phannhatchanh.com">hello@phannhatchanh.com</a> hoặc <a href="mailto:phannhatchanh@gmail.com">phannhatchanh@gmail.com</a></li>
-              <li><a href="https://messenger.com/t/phannhatchanh" target="_blank">Mời tôi 1 ly càfe</a>.</li>
+              <li><a href="https://www.paypal.com/paypalme/PhanNhatChanh/" target="_blank">Mời tôi 1 ly càfe</a>.</li>
             </ul>
 
           </div>

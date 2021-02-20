@@ -6,7 +6,7 @@ import Bio from '../components/Bio';
 
 const AboutPage = () => (
   <Layout>
-  <SEO title="Giới thiệu" />
+  <SEO title="About me" />
     <div className="index-wrap">
     <Bio />
       <div className="index-post-list-wrap">
