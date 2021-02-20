@@ -7,9 +7,7 @@ const Newsletter = () => (
       action="https://buttondown.email/api/emails/embed-subscribe/phannhatchanh"
       method="post"
       target="popupwindow"
-      onSubmit={() =>
-        window && window.open('https://buttondown.email/phannhatchanh', 'popupwindow')
-      }
+      onSubmit={() => window && window.open('https://buttondown.email/phannhatchanh', 'popupwindow')}
       className="newsletter"
     >
       <div className="title">Newsletter</div>
