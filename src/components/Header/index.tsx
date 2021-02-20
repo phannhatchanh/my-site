@@ -2,9 +2,19 @@ import * as React from 'react';
 import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
-import { faTags, faSearch, faMoon, faSun, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFolderOpen,
+  faHeart,
+  faTags,
+  faSearch,
+  faMoon,
+  faSun,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { useColorMode } from 'theme-ui';
+
+import { Tooltip } from '@primer/components';
 
 import './header.scss';
 import { RootState } from '../../state/reducer';
@@ -75,7 +85,7 @@ const Header = (props: headerPropsType) => {
     }
 
     const setVisible = () => {
-      setYPos(prevYPos => {
+      setYPos((prevYPos) => {
         const currentYPos = window.pageYOffset;
 
         if (currentYPos > 0) setIsHide(prevYPos < currentYPos);
@@ -121,7 +131,6 @@ const Header = (props: headerPropsType) => {
             />
             <Fa icon={faChevronRight} style={{ fontSize: '0.9rem' }} />
           </div>
-
           <Fa
             icon={colorMode === 'dark' ? faSun : faMoon}
             style={{ fontSize: colorMode === 'dark' ? '1.2rem' : '1.1rem' }}
@@ -141,17 +150,31 @@ const Header = (props: headerPropsType) => {
 
         <ul>
           <li>
-            <div className="tag-wrap">
-              <Link to="/tags/">
-                <Fa icon={faTags} />
+            <div className="category-wrap">
+              <Link to="/category/">
+                <Tooltip aria-label="Category">
+                  <Fa icon={faFolderOpen} color="gray" />
+                </Tooltip>
               </Link>
             </div>
           </li>
-
+          &nbsp;&nbsp;
+          <li>
+            <div className="tag-wrap">
+              <Link to="/tags/">
+                <Tooltip aria-label="Tags">
+                  <Fa icon={faTags} color="gray" />
+                </Tooltip>
+              </Link>
+            </div>
+          </li>
+          &nbsp;&nbsp;
           <li>
             <div className="search-wrap">
               <Link to="/search/" className="search">
-                <Fa icon={faSearch} />
+                <Tooltip aria-label="Search">
+                  <Fa icon={faSearch} color="gray" />
+                </Tooltip>
               </Link>
             </div>
           </li>
