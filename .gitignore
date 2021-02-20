@@ -11,5 +11,5 @@ yarn-error.log
 public/
 
 # Build Resume
-static/resume.html
-static/resume.pdf
+ static/resume.html
+ static/resume.pdf
