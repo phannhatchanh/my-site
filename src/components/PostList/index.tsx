@@ -4,17 +4,36 @@ import * as React from 'react';
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { Link } from 'gatsby';
 import { throttle } from 'lodash';
+import { unslugify } from '../../utils/helpers';
 
-import moment from 'moment' //Xử lý thời gian
+import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
+import { faFolderOpen, faTags, faEye, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+
+import moment from 'moment';
 
 import './postList.scss';
 
 interface PostListProps {
   posts: any[];
+  onTagClick?: (tag: string) => void;
+  onCategoryClick?: (category: string) => void;
 }
 
-const PostList = (props: PostListProps) => {
-  const { posts } = props;
+const PostList: React.FC<PostListProps> = ({ posts, onTagClick, onCategoryClick }) => {
+  //const { posts } = props;
+
+  const handleTagClick = (tag: string) => () => {
+    if (onTagClick) {
+        onTagClick(tag);
+    }
+  };
+
+  const handleCategoryClick = (category: string) => () => {
+      if (onCategoryClick) {
+          onCategoryClick(category);
+      }
+  };
+
   const [showCnt, setShowCnt] = useState(10);
   const [currentPostList, setCurrentPostList] = useState<JSX.Element[]>([]);
   const sortedPosts = useMemo(() => {
@@ -51,41 +70,80 @@ const PostList = (props: PostListProps) => {
       const { node } = post;
       const { excerpt, fields, frontmatter, timeToRead } = node;
       const { slug } = fields;
-      const { date, title, tags } = frontmatter;
+      const { date, title, tags, categories } = frontmatter;
       let update = frontmatter.update;
       if (Number(update.split(',')[1]) === 1) update = null;
 
-      const mapTag = tags.map((tag: string) => {
-        if (tag === 'undefined') return;
-
+      const mapCategory = categories.map((category: string) => {
         return (
-          <div key={`${slug}-${tag}`} className="tag">
-            <span>
-              <Link to={`/tags/#${tag}`}>{`#${tag}`}</Link>
+          <div key={`${slug}-${category}`} className="tag">
+            <span onClick={handleCategoryClick(category)}>
+              <Link to={`/category/#${category}`}>{`${unslugify(category)}`}</Link>
             </span>
           </div>
         );
       });
-      const newest = moment(date) > moment().subtract(29, 'days')
-      const oldest = moment(date) < moment().subtract(29, 'days')
+
+      const mapTag = tags.map((tag: string) => {
+        if (tag === 'undefined') return;
+        return (
+          <div key={`${slug}-${tag}`} className="tag">
+            <span onClick={handleTagClick(tag)}>
+              <Link to={`/tags/#${tag}`}>{`#${unslugify(tag)}`}</Link>
+            </span>
+          </div>
+        );
+      });
+
+      const newest = moment(date) > moment().subtract(29, 'days');
+      const oldest = moment(date) < moment().subtract(29, 'days');
       const timeago = moment(date).fromNow();
+
       return (
         <li key={slug} className={`post`}>
           <article>
-            <h2 className="title"><Link to={slug}>{title}</Link></h2>
+            <h2 className="title">
+              <Link to={slug}>{title}</Link>
+            </h2>
             <div className="info">
               <div className="date-wrap">
-                {newest && (<span className="date">{timeago}</span>)}
-                {oldest && (<span className="date">{date}</span>)}
-                {update ? <span className="update">&nbsp;{`(Updated: ${update})`}</span> : null}
-                <span className="info-dot">·</span><span className="date">{timeToRead} min read</span>
+                <span className="info-dot">
+                  <Fa icon={faCalendarAlt} color="gray" />
+                </span>
+                {newest && <span className="date">{timeago}</span>}
+                {oldest && <span className="date">{date}</span>}
+                {update ? (
+                  <span className="update" style={{ color: '#8c7800' }}>
+                    &nbsp;{`Updated ${update}`}
+                  </span>
+                ) : null}
+                <span className="info-dot">
+                  <Fa icon={faEye} color="gray" />
+                </span>
+                <span className="date">{timeToRead} min read</span>
               </div>
-              {tags.length && tags[0] !== 'undefined' ? <span className="info-dot">·</span> : null}
-              <ul className="tag-list">{mapTag}</ul>
+              {categories.length && categories[0] !== 'undefined' ? (
+                <span className="info-dot">
+                  <Fa icon={faFolderOpen} color="gray" />
+                </span>
+              ) : (
+                <span className="info-dot">
+                  <Fa icon={faFolderOpen} color="gray" />
+                </span>
+              )}
+              <ul className="tag-list">{mapCategory}</ul>
             </div>
             <Link to={slug}>
               <span className="excerpt">{excerpt}</span>
             </Link>
+            <div className="info">
+              {tags.length && tags[0] !== 'undefined' ? (
+                <span className="info-dot">
+                  <Fa icon={faTags} color="gray" />
+                </span>
+              ) : null}
+              <ul className="tag-list">{mapTag}</ul>
+            </div>
           </article>
         </li>
       );
