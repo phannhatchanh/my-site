@@ -62,6 +62,7 @@ export const pageQuery = graphql`
             date(formatString: "MMM DD, YYYY")
             update(formatString: "MMM DD, YYYY")
             title
+            categories
             tags
           }
           timeToRead
