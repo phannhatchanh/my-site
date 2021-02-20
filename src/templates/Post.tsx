@@ -6,9 +6,10 @@ import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { graphql, Link } from 'gatsby';
 import moment from 'moment';
+import { unslugify } from '../utils/helpers'
 import Image from 'gatsby-image';
 import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
-import { faListUl, faLayerGroup, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faListUl, faLayerGroup, faAngleRight, faTags, faEye, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import AdSense from 'react-adsense';
 import {
   FacebookShareButton,
@@ -81,7 +82,7 @@ const Post = (props: postProps) => {
   const mapTags = tags.map((tag: string) => {
     return (
       <li key={tag} className="blog-post-tag">
-        <Link to={`/tags#${tag}`}>{`#${tag}`}</Link>
+        <Link to={`/tags#${tag}`}>{`#${unslugify(tag)}`}</Link>
       </li>
     );
   });
@@ -235,21 +236,22 @@ const Post = (props: postProps) => {
             </div>
             <div className="blog-post-info">
               <div className="date-wrap">
+                <span className="info-dot">
+                  <Fa icon={faCalendarAlt} color="gray" />
+                </span>
                 {newest && (<span className="write-date">{timeago}</span>)}
                 {oldest && (<span className="write-date">{date}</span>)}
                 {update ? (
                   <>
-                    <span>(</span>
-                    <span className="update-date">{`Updated ${update}`}</span>
-                    <span>)</span>
+                    &nbsp;<span className="update-date" style={{color:'#8c7800'}}>{`Updated ${update}`}</span>
                   </>
                 ) : null}
-                <span className="dot">·</span><span className="write-date">{timeToRead} min read</span>
+                <span className="dot">&nbsp;<Fa icon={faEye} color="gray" /></span>&nbsp;<span className="write-date">{timeToRead} min read</span>
               </div>
               
               {tags.length && tags[0] !== 'undefined' ? (
                 <>
-                  <span className="dot">·</span>
+                  <span className="dot"><Fa icon={faTags} color="gray" /></span>
                   <ul className="blog-post-tag-list">{mapTags}</ul>
                 </>
               ) : null}
@@ -344,9 +346,14 @@ const Post = (props: postProps) => {
           ) : (
             <>
               <aside className="ad">
-
+              <AdSense.Google
+                //client={config.googleAdsenseClient || 'ca-pub-5001380215831339'}
+                //slot={config.googleAdsenseSlot || '5214956675'}
+                //style={{ display: 'block' }}
+                //format="auto"
+                //responsive="true"
+              />
               </aside>
-              
               {!isSSR ? <Suspense fallback={<></>}>{commentEl}</Suspense> : null}
             </>
           )}
