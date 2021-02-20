@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { useEffect, useState, useCallback } from 'react';
 import { graphql } from 'gatsby';
-
+import { unslugify } from '../utils/helpers'
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import './styles/tags.scss';
@@ -55,7 +55,7 @@ const Tags = (props: TagsPageProps) => {
             setTargetTag(g.fieldValue);
           }}
         >
-          <a href={`/tags/#${g.fieldValue}`}>{g.fieldValue}</a>
+          <a href={`/tags/#${g.fieldValue}`}>{unslugify(g.fieldValue)}</a>
         </span>
       </li>
     );
@@ -101,7 +101,8 @@ const Tags = (props: TagsPageProps) => {
         <div className="count">
           {tagCount}
         </div>
-        <PostList posts={currentPostList.length ? currentPostList : []} />
+        
+        <PostList posts={getPostList()} onTagClick={tag => setTargetTag(tag)} />
       </div>
     </Layout>
   );
@@ -123,6 +124,7 @@ export const pageQuery = graphql`
               date(formatString: "MMM DD, YYYY")
               update(formatString: "MMM DD, YYYY")
               title
+              categories
               tags
             }
             timeToRead
