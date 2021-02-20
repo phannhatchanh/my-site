@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
-import { faFrown } from '@fortawesome/free-regular-svg-icons';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
@@ -20,10 +18,8 @@ const NotFoundPage = () => (
         userSelect: 'none',
       }}
     >
-      <div className="icon-wrap">
-        <Fa icon={faFrown} style={{ minHeight: '10rem', fontSize: '10rem' }} />
-      </div>
-      <h1 style={{ fontSize: '5rem', margin: '0.5rem 0 1rem 0' }}>404</h1>
+      <h1 style={{ fontSize: '2rem', margin: '0.5rem 0 1rem 0' }}>error 404: Not Found</h1>
+      <img src="/404.png" alt='404: Not found' />
       <p>{`That page doesn't exist or is unavailable.`}</p>
     </div>
   </Layout>
