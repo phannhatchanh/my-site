@@ -35,7 +35,7 @@ module.exports = {
   /** Optional */
   googleAnalytics: 'UA-144575004-1',       
   googleSearchConsole: '', 
-  googleAdsenseSlot: '5214956675',                                
-  googleAdsenseClient: 'ca-pub-5001380215831339',                     
+  googleAdsenseSlot: '',                                
+  googleAdsenseClient: '',                     
 
 };
