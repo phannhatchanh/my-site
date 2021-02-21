@@ -56,7 +56,7 @@ const Search = (props: SearchProps) => {
               name="search"
               id="searchInput"
               value={value}
-              placeholder="Enter keyword"
+              placeholder="Type here..."
               autoComplete="off"
               autoFocus
               onChange={(e: React.FormEvent<HTMLInputElement>) => {
