@@ -186,7 +186,7 @@ const Post = (props: postProps) => {
   return (
     <>
       <Helmet>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
         <script type="application/ld+json">
           {`
 {
