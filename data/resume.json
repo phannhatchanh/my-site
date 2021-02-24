@@ -1,0 +1,224 @@
+{
+  "basics": {
+    "name": "Phan Nhat Chanh",
+    "label": "Front End Software Engineer",
+    "picture": "https://phannhatchanh.com/icons/icon-512x512.png",
+    "email": "hello@phannhatchanh.com",
+    "phone": "",
+    "website": "https://phannhatchanh.com",
+    "summary": "Hi there! This is my personal website here i update lots of things which can not be summed up in my resume visit <a href='https://phannhatchanh.com' target='_blank'>it here</a>.",
+    "location": {
+      "city": "Tra Vinh",
+      "countryCode": "Viet Nam"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "phannhatchanh",
+        "url": "https://github.com/phannhatchanh"
+      },
+      {
+        "network": "Youtube",
+        "url": "https://www.youtube.com/user/pnchanh",
+        "username": "pnchanh"
+      },
+      {
+        "network": "npm",
+        "username": "npx phannhatchanh"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "Languages",
+      "level": "Intermediate",
+      "keywords": [
+        "Python",
+        "Javascript",
+        "PHP"
+      ]
+    },
+    {
+      "name": "Frontend",
+      "level": "Advanced",
+      "keywords": [
+        "HTML5",
+        "SCSS",
+        "Wordpress",
+        "Gatsby",
+        "Jekyll",
+        "Bootstrap"
+      ]
+    },
+    {
+      "name": "Backend",
+      "level": "Beginner",
+      "keywords": [
+        "MySQL",
+        "GraphQL",
+        "Docker",
+        "NodeJS"
+      ]
+    },
+    {
+      "name": "Version Control",
+      "level": "Beginner",
+      "keywords": [
+        "Git",
+        "Github",
+        "Bitbucket"
+      ]
+    },
+    {
+      "name": "Tools",
+      "level": "Master",
+      "keywords": [
+        "VS Code",
+        "Sublime Text"
+      ]
+    },
+    {
+      "name": "Others",
+      "level": "Intermediate",
+      "keywords": [
+        "web scraping"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Source code of my personal website.",
+      "url": "https://github.com/phannhatchanh/my-site",
+      "summary": "Personal website running on Gatsby, React, and Node.js",
+      "highlights": [
+        "The source for this site was not created to be a template or theme, but for my own use. Feel free to take whatever inspiration from it that you want, but this code was not written with the intention of being cloned and deployed. As such, I do not provide support or guidance for doing that.",
+        "I recommend using the Gatsby Advanced Starter to set up a blog or an existing theme created for that purpose."
+      ],
+      "keywords": [
+        "gatsby",
+        "typescript",
+        "React",
+        "Node.js"
+      ],
+      "roles": [
+        "Developer"
+      ],
+      "startDate": "2019-07-01",
+      "endDate": "2021-07-01",
+      "entity": "",
+      "type": "Application"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Can tho University",
+      "area": "Information Technology",
+      "studyType": "Bachelor",
+      "startDate": "2006-05-01",
+      "endDate": "2010-09-01",
+      "gpa": "2006",
+      "summary": "<a href='https://www.ctu.edu.vn' target='_blank'>Can Tho University</a> (CTU), an important state higher education institution in the Mekong Delta, is the cultural, scientific and technical center of the Mekong Delta and Vietnam. Since its founding in 1966, CTU has been improving and developing itself.",
+      "location": {
+        "city": "Can Tho",
+        "countryCode": "Viet Nam"
+      },
+      "courses": [
+        "Databases",
+        "Procedural Programming",
+        "Object Oriented Programming",
+        "Web Development"
+      ]
+    },
+    {
+      "institution": "Nguyen Dang High School",
+      "area": "Senior Secondary",
+      "studyType": "",
+      "startDate": "2001-09-01",
+      "endDate": "2004-05-30",
+      "gpa": "A",
+      "summary": "<a href='http://bit.ly/3peBvzF' target='_blank'>Nguyen Dang hight shool</a>, an important state general education Tra Vinh province. Since its founding in 1967, it has been improving and developing itself.",
+      "location": {
+        "city": "Tra Vinh",
+        "countryCode": "Viet Nam"
+      },
+      "courses": [
+        "Class 10a5",
+        "Class 11a5",
+        "Class 12a5"
+      ]
+    }
+  ],
+  "work": [
+    {
+      "company": "PT DTNT-THCS of Cang Long district.",
+      "position": "Working in education",
+      "startDate": "2017-09-01",
+      "endDate": "2021-01-01",
+      "keywords": [
+        "Education",
+        "IT Teacher"
+      ],
+      "location": {
+        "city": "Huyen Hoi",
+        "countryCode": "Cang Long, Tra Vinh, Viet Nam"
+      },
+      "website": "http://bit.ly/3qPv46e",
+      "summary": "This is my workplace."
+    },
+    {
+      "company": "Duc My A primary school.",
+      "position": "Working in education",
+      "startDate": "2015-09-01",
+      "endDate": "2017-09-01",
+      "keywords": [
+        "Education",
+        "IT Teacher"
+      ],
+      "location": {
+        "city": "Duc My",
+        "countryCode": "Cang Long, Tra Vinh, Viet Nam"
+      },
+      "website": "http://bit.ly/2Y6M7Vp",
+      "summary": "This is the first school I worked on. Where there are many memories!"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Vietnamese",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Intermediate"
+    },
+    {
+      "language": "Khmer",
+      "fluency": "Beginner"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Reading",
+      "keywords": [
+        "Biography",
+        "History",
+        "psychology"
+      ],
+      "summary": "I like to read books in <em>biography</em>, <em>history</em> and <em>psychology</em>. Check my activities <a href='https://phannhatchanh.com/reading' target='_blank'>at here</a> for more information."
+    },
+    {
+      "name": "Music",
+      "keywords": [
+        "Playing the Guitar"
+      ],
+      "summary": "I like to sing, play guitar, and record music sometimes. <a href='https://www.youtube.com/user/pnchanh' target='_blank'>Here are a few that I've recorded</a>."
+    },
+    {
+      "name": "Sport",
+      "keywords": [
+        "Football",
+        "Volleyball"
+      ]
+    }
+  ]
+}
