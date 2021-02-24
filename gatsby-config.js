@@ -1,5 +1,5 @@
 const config = require('./_config');
-const resumeJson = require('./_posts/data/resume.json');
+const resumeJson = require('./data/resume.json');
 const { title, description, author, googleAnalytics, siteUrl, language } = config;
 
 const gatsbyConfig = {
