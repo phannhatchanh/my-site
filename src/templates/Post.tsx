@@ -10,7 +10,7 @@ import { unslugify } from '../utils/helpers'
 import Image from 'gatsby-image';
 import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
 import { faListUl, faLayerGroup, faAngleRight, faTags, faEye, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-import AdSense from 'react-adsense';
+
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -346,13 +346,7 @@ const Post = (props: postProps) => {
           ) : (
             <>
               <aside className="ad">
-              <AdSense.Google
-                //client={config.googleAdsenseClient || 'ca-pub-5001380215831339'}
-                //slot={config.googleAdsenseSlot || '5214956675'}
-                //style={{ display: 'block' }}
-                //format="auto"
-                //responsive="true"
-              />
+
               </aside>
               {!isSSR ? <Suspense fallback={<></>}>{commentEl}</Suspense> : null}
             </>
