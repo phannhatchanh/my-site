@@ -7,7 +7,7 @@ import { throttle } from 'lodash';
 import { unslugify } from '../../utils/helpers';
 
 import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
-import { faFolderOpen, faTags, faEye, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFolderOpen, faTags, faEye, faCalendarAlt, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 import moment from 'moment';
 
@@ -70,9 +70,18 @@ const PostList: React.FC<PostListProps> = ({ posts, onTagClick, onCategoryClick 
       const { node } = post;
       const { excerpt, fields, frontmatter, timeToRead } = node;
       const { slug } = fields;
-      const { date, title, tags, categories } = frontmatter;
+      const { date, tags, categories } = frontmatter;
       let update = frontmatter.update;
       if (Number(update.split(',')[1]) === 1) update = null;
+
+      let { title } = frontmatter;
+      let externalLink = null;
+      const isTitleLinkPattern = /(?=.*\[)(?=.*\])(?=.*\()(?=.*\))/i
+      if (isTitleLinkPattern.test(title)) {
+        const found = title.match(/\[(.*)]\((.*)\)/)
+        title = found[1]
+        externalLink = found[2]
+      }
 
       const mapCategory = categories.map((category: string) => {
         return (
@@ -102,9 +111,17 @@ const PostList: React.FC<PostListProps> = ({ posts, onTagClick, onCategoryClick 
       return (
         <li key={slug} className={`post`}>
           <article>
-            <h2 className="title">
-              <Link to={slug}>{title}</Link>
-            </h2>
+
+            {externalLink ? (
+              <h2 className="title">
+                <Fa icon={faExternalLinkAlt} color="gray" /> <a href={externalLink} target="_blank" rel="noopener noreferrer">{title}</a>
+              </h2>
+            ) : (
+              <h2 className="title">
+                <Link to={slug}>{title}</Link>
+              </h2>
+            )}
+            
             <div className="info">
               <div className="date-wrap">
                 <span className="info-dot">
@@ -133,9 +150,7 @@ const PostList: React.FC<PostListProps> = ({ posts, onTagClick, onCategoryClick 
               )}
               <ul className="tag-list">{mapCategory}</ul>
             </div>
-            <Link to={slug}>
-              <span className="excerpt">{excerpt}</span>
-            </Link>
+            <span className="excerpt">{excerpt}</span>
             <div className="info">
               {tags.length && tags[0] !== 'undefined' ? (
                 <span className="info-dot">
