@@ -76,7 +76,7 @@ const Bio = () => {
       {!resume ? null : (
         <div className="bio-item">
           <div className="icon-wrap"><Fa icon={faIdCard} color="gray" /></div>
-          <Link to="/resume/" activeClassName="active">{resume}</Link>
+          <a href="/resume/">{resume}</a>
         </div>
       )}
 
