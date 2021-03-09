@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { Link } from 'gatsby';
 import { throttle } from 'lodash';
-import { unslugify } from '../../utils/helpers';
+import { un_slugify } from '../../utils/helpers';
 
 import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
 import { faFolderOpen, faTags, faEye, faCalendarAlt, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
@@ -87,7 +87,7 @@ const PostList: React.FC<PostListProps> = ({ posts, onTagClick, onCategoryClick 
         return (
           <div key={`${slug}-${category}`} className="tag">
             <span onClick={handleCategoryClick(category)}>
-              <Link to={`/category/#${category}`}>{`${unslugify(category)}`}</Link>
+              <Link to={`/category/#${category}`}>{`${un_slugify(category)}`}</Link>
             </span>
           </div>
         );
@@ -98,7 +98,7 @@ const PostList: React.FC<PostListProps> = ({ posts, onTagClick, onCategoryClick 
         return (
           <div key={`${slug}-${tag}`} className="tag">
             <span onClick={handleTagClick(tag)}>
-              <Link to={`/tags/#${tag}`}>{`#${unslugify(tag)}`}</Link>
+              <Link to={`/tags/#${tag}`}>{`#${un_slugify(tag)}`}</Link>
             </span>
           </div>
         );
@@ -106,7 +106,7 @@ const PostList: React.FC<PostListProps> = ({ posts, onTagClick, onCategoryClick 
 
       const newest = moment(date) > moment().subtract(29, 'days');
       const oldest = moment(date) < moment().subtract(29, 'days');
-      const timeago = moment(date).fromNow();
+      const time_ago = moment(date).fromNow();
 
       return (
         <li key={slug} className={`post`}>
@@ -127,7 +127,7 @@ const PostList: React.FC<PostListProps> = ({ posts, onTagClick, onCategoryClick 
                 <span className="info-dot">
                   <Fa icon={faCalendarAlt} color="gray" />
                 </span>
-                {newest && <span className="date">{timeago}</span>}
+                {newest && <span className="date">{time_ago}</span>}
                 {oldest && <span className="date">{date}</span>}
                 {update ? (
                   <span className="update" style={{ color: '#8c7800' }}>

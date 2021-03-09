@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { graphql, Link } from 'gatsby';
 import moment from 'moment';
-import { unslugify } from '../utils/helpers'
+import { un_slugify } from '../utils/helpers'
 import Image from 'gatsby-image';
 import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome';
 import { faListUl, faLayerGroup, faAngleRight, faTags, faEye, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
@@ -82,7 +82,7 @@ const Post = (props: postProps) => {
   const mapTags = tags.map((tag: string) => {
     return (
       <li key={tag} className="blog-post-tag">
-        <Link to={`/tags#${tag}`}>{`#${unslugify(tag)}`}</Link>
+        <Link to={`/tags#${tag}`}>{`#${un_slugify(tag)}`}</Link>
       </li>
     );
   });
@@ -180,7 +180,7 @@ const Post = (props: postProps) => {
 
     return () => removeScrollEvent();
   }, []);
-  const timeago = moment(date).fromNow();
+  const time_ago = moment(date).fromNow();
   const newest = moment(date) > moment().subtract(29, 'days')
   const oldest = moment(date) < moment().subtract(29, 'days')
   return (
@@ -239,7 +239,7 @@ const Post = (props: postProps) => {
                 <span className="info-dot">
                   <Fa icon={faCalendarAlt} color="gray" />
                 </span>
-                {newest && (<span className="write-date">{timeago}</span>)}
+                {newest && (<span className="write-date">{time_ago}</span>)}
                 {oldest && (<span className="write-date">{date}</span>)}
                 {update ? (
                   <>

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { useEffect, useState, useCallback } from 'react';
 import { graphql } from 'gatsby';
-import { unslugify } from '../utils/helpers'
+import { un_slugify } from '../utils/helpers'
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import './styles/tags.scss';
@@ -55,7 +55,7 @@ const Categories = (props: CategoryPageProps) => {
             setTargetCategory(g.fieldValue);
           }}
         >
-          <a href={`/category/#${g.fieldValue}`}>{unslugify(g.fieldValue)}</a>
+          <a href={`/category/#${g.fieldValue}`}>{un_slugify(g.fieldValue)}</a>
         </span>
       </li>
     );
